@@ -1,0 +1,68 @@
+---
+Checks: >
+  -*,
+  abseil-*,
+  bugprone-*,
+  cppcoreguidelines-*
+  google-*,
+  misc-*,
+  -misc-non-private-member-variables-in-classes,
+  modernize-*,
+  -modernize-use-auto,
+  -modernize-avoid-c-arrays,
+  -modernize-use-trailing-return-type,
+  -modernize-pass-by-value,
+  -modernize-use-nodiscard,
+  performance-*,
+  portability-*,
+  readability-*,
+  -readability-magic-numbers,
+  -fuchsia-default-arguments-calls,
+  llvm-namespace-comment
+# Turn all the warnings from the checks above into errors.
+# WarningsAsErrors: "*"
+
+HeaderFilterRegex: ''
+
+AnalyzeTemporaryDtors: false
+
+CheckOptions:
+  - {key: llvm-namespace-comment.ShortNamespaceLines,                 value: '1'}
+  - {key: llvm-namespace-comment.SpacesBeforeComments,                value: '2'}
+  - {key: misc-unused-parameters.StrictMode,                          value: '1'}
+  # braces will be added to all statements
+  - { key: readability-braces-around-statements.ShortStatementLines,  value: '0'}
+  # namespace is lower_case
+  - { key: readability-identifier-naming.NamespaceCase,          value: lower_case }
+  # class, enum, struct, union are CamelCase
+  - { key: readability-identifier-naming.ClassCase,              value: CamelCase  }
+  - { key: readability-identifier-naming.EnumCase,               value: CamelCase  }
+  - { key: readability-identifier-naming.ScopedEnumConstantCase, value: CamelCase  }
+  - { key: readability-identifier-naming.StructCase,             value: CamelCase  }
+  - { key: readability-identifier-naming.UnionCase,              value: CamelCase  }
+  - { key: readability-identifier-naming.TemplateParameterCase,  value: CamelCase  }
+  # functions, member functions are lower_case
+  - { key: readability-identifier-naming.FunctionCase,           value: CamelCase  }
+  - { key: readability-identifier-naming.MethodCase,             value: CamelCase  }
+  # variable, class data member are lower_case
+  - { key: readability-identifier-naming.LocalVariableCase,      value: lower_case }
+  - { key: readability-identifier-naming.VariableCase,           value: lower_case }
+  - { key: readability-identifier-naming.ClassMemberCase,        value: lower_case }
+  - { key: readability-identifier-naming.ClassMemberSuffix,      value: _          }
+  - { key: readability-identifier-naming.PrivateMemberSuffix,    value: _          }
+  - { key: readability-identifier-naming.ProtectedMemberSuffix,  value: _          }
+  - { key: readability-identifier-naming.StructMemberCase,       value: lower_case }
+  # enumerators, global and static variables are CamelCase with k as prefix
+  - { key: readability-identifier-naming.EnumConstantCase,         value: upper_case }
+  # - { key: readability-identifier-naming.EnumConstantPrefix,       value: k         }
+  - { key: readability-identifier-naming.ConstexprVariableCase,    value: CamelCase }
+  - { key: readability-identifier-naming.ConstexprVariablePrefix,  value: k         }
+  - { key: readability-identifier-naming.GlobalConstantCase,       value: CamelCase }
+  - { key: readability-identifier-naming.GlobalConstantPrefix,     value: k         }
+  - { key: readability-identifier-naming.MemberConstantCase,       value: CamelCase }
+  - { key: readability-identifier-naming.MemberConstantPrefix,     value: k         }
+  - { key: readability-identifier-naming.StaticConstantCase,       value: CamelCase }
+  - { key: readability-identifier-naming.StaticConstantPrefix,     value: k         }
+  - { key: readability-implicit-bool-conversion.AllowIntegerConditions,   value: 1 }
+  - { key: readability-implicit-bool-conversion.AllowPointerConditions,   value: 1 }
+  - { key: readability-function-cognitive-complexity.IgnoreMacros,        value: 1 }
