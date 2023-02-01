@@ -3,8 +3,9 @@
 //
 #include <cstdlib>
 #include <iostream>
-
+#include "design_pattern/log.hpp"
 int main(int /*argc*/, char** /*argv*/) {
-  std::cout << "run successfully" << std::endl;
+  log::StreamLog logger;
+  logger.Log(log::Level::INFO, "run successfully");
   return EXIT_SUCCESS;
 }
