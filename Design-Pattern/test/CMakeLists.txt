@@ -14,4 +14,5 @@ set(GOOGLE_LIBRARIES gtest gtest_main)
 include(${CMAKE_SOURCE_DIR}/../cmake/AddTestWithLibraries.cmake)
 
 # ##############################################################################
-#add_subdirectory(src)
+set(UTEST_LOG ${CMAKE_CURRENT_SOURCE_DIR}/utest_log.cpp)
+package_add_test_with_libraries(utest_logger "${UTEST_LOG}" "${SHARED_LIBS}" "")

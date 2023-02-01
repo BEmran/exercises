@@ -9,24 +9,26 @@
 namespace log {
 
 enum class Level : uint8_t {
-  INFO = 1<<0,
-  DEBUG = 1<<1,
-  WARN = 1<<2,
-  ERROR = 1<<3,
+  INFO = 1 << 0,
+  DEBUG = 1 << 1,
+  WARN = 1 << 2,
+  ERROR = 1 << 3,
 };
 
 class ILog {
  public:
   virtual ~ILog() = default;
-  virtual void SetLevel ( Level level) = 0;
-  virtual void Log( Level level, std::string str) = 0;
+  virtual void SetLevel(Level level) = 0;
+  virtual void Log(Level level, std::string str) = 0;
 };
 
 class StreamLog : public ILog {
  public:
-  void SetLevel ( Level level) override;
-  void Log( Level level, std::string msg) override;
- private:
+  ~StreamLog() = default;
+  void SetLevel(Level level) override;
+  void Log(Level level, std::string msg) override;
+
+ protected:
   Level level_{Level::INFO};
 };
 }  // namespace log
